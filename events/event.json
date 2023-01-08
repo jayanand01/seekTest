@@ -1,5 +1,5 @@
 {
-  "body": "{\"itemList\": \"standout, standout, standout, standout, standout, premium\", \"customer\": \"MYER\"}",
+  "body": "{\"itemList\": \"classic, standout, premium\", \"customer\": \"ABC\"}",
   "resource": "/{proxy+}",
   "path": "/path/to/resource",
   "httpMethod": "POST",
