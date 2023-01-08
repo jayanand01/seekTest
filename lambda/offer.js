@@ -8,18 +8,6 @@ const CLASSIC = 'classic'
 const STANDOUT = 'standout'
 const PREMIUM = 'premium'
 
-/**
- *
- * Event doc: https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-lambda-proxy-integrations.html#api-gateway-simple-proxy-for-lambda-input-format
- * @param {Object} event - API Gateway Lambda Proxy Input Format
- *
- * Context doc: https://docs.aws.amazon.com/lambda/latest/dg/nodejs-prog-model-context.html 
- * @param {Object} context
- *
- * Return doc: https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-lambda-proxy-integrations.html
- * @returns {Object} object - API Gateway Lambda Proxy Output Format
- * 
- */
 exports.offerHandler = async (event, context) => {
 
     // The json data is being passed in the body of the lambda request. Format - "classic, standout, premium"
@@ -91,7 +79,7 @@ exports.offerHandler = async (event, context) => {
             })
         }
     } catch (err) {
-        // The error message hardcoded below can be moved from here to some other files or services.It has been used for demo purpose.
+        // The error message hardcoded below can be moved from here to some other files or services.It has been used here for demo purpose.
         response = {
             'statusCode': 404,
             'body': JSON.stringify({
