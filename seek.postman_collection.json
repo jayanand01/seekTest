@@ -1,0 +1,150 @@
+{
+	"info": {
+		"_postman_id": "5442c631-4ca2-4bf6-b06d-cbfb18b9b7a7",
+		"name": "seek",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "268184"
+	},
+	"item": [
+		{
+			"name": "Offer - Default Customer or No Customer in Body",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \r\n    \"itemList\": \"classic, classic, standout\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/total",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"total"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Offer - SecondBite Customer",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \r\n    \"itemList\": \"classic, classic, classic, standout\", \"customer\": \"SecondBite\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/total",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"total"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Offer - No Matching Customer",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \r\n    \"itemList\": \"classic, classic, classic, standout\", \"customer\": \"ABC\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/total",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"total"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Offer - Axil Coffee Roasters Customer",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \r\n    \"itemList\": \"standout, standout, standout, premium\", \"customer\": \"Axil Coffee Roasters\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/total",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"total"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Offer - Myer Customer",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \r\n    \"itemList\": \"standout, standout, standout, standout, standout, premium\", \"customer\": \"MYER\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/total",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"total"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
