@@ -25,8 +25,6 @@ exports.offerHandler = async (event, context) => {
     // The json data is being passed in the body of the lambda request. Format - "classic, standout, premium"
     const { customer, itemList } = event.body && JSON.parse(event.body) || {};
 
-    console.log(event.body, customer, itemList, context)
-
     try {
         if (!itemList) {
             return response = {
@@ -50,7 +48,6 @@ exports.offerHandler = async (event, context) => {
             // Customer Found in Offers DB- logic to calculate the total pricing
 
             const prices = customerOffers.find(mapper => mapper.customer === customer)
-            
             // Deserialize the JSON data.
             const {bundleClassic, singleClassic, bundleStandOut, singleStandOut, bundlePremium, singlePremium, priceForBundleClassicAds, priceForClassicAds, priceForBundleStandOutAds, priceForStandOutAds, priceForBundlePremiumAds, priceForPremiumAds} = prices || {};
 
@@ -60,7 +57,7 @@ exports.offerHandler = async (event, context) => {
             const premiumOffers = offers.filter(offer => offer === PREMIUM);
             
             // Console logs to understand the logic below
-            // console.log(customer, bundleClassic, bundleStandOut, bundlePremium, singleClassic, eval(singleClassic), eval(bundleClassic), eval(bundleStandOut), eval(bundlePremium), classicOffers, standOutOffers, premiumOffers)
+            // console.log(customer, bundleClassic, bundleStandOut, bundlePremium, singleClassic, eval(singleClassic), eval(bundleClassic), eval(bundleStandOut), eval(bundlePremium), classicOffers, standOutOffers, premiumOffers, priceForBundleStandOutAds)
 
             // Get Individual offer type accumulative costs and add them to get a total one.
             const totalClassicPrice = bundleClassic !== "0"
@@ -80,7 +77,8 @@ exports.offerHandler = async (event, context) => {
                 eval(bundlePremium) * priceForBundlePremiumAds + eval(singlePremium) * priceForPremiumAds
             :
                 premiumOffers.length * priceForPremiumAds;
-
+            
+            // Console logs to get the total
             // console.log(totalClassicPrice, totalPremiumPrice, totalStandOutPrice)
         
             total = totalClassicPrice + totalPremiumPrice + totalStandOutPrice
